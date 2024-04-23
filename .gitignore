@@ -1,2 +1,4 @@
 # no binary should be push to the repo
 notify-to-slack
+tmp/*
+work/*

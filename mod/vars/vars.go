@@ -28,7 +28,7 @@ type (
 )
 
 var (
-   MyVersion   = "0.0.1"
+   MyVersion   = "0.0.2"
     now         = time.Now()
     MyProgname  = path.Base(os.Args[0])
     myAuthor    = "Luc Suryo"
