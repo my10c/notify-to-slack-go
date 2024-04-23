@@ -13,6 +13,8 @@ import (
 	"os"
 	"io"
 	"strings"
+	"time"
+	"regexp"
 
 	// local
 	"vars"
@@ -45,6 +47,23 @@ func SendMessage(msg string, config vars.SlackConfig) bool {
 }
 
 func GetMessage(config vars.SlackConfig) string {
+	var msg string
+	result := make(chan string, 1)
+	go func() {
+		result <- getMessage(config)
+	} ()
+	select {
+		// we should get data within 2 seconds
+		// otherwise we exit
+		case <-time.After(2 * time.Second):
+			os.Exit(3)
+		case msg = <-result:
+			break
+	}
+	return msg
+}
+
+func getMessage(config vars.SlackConfig) string {
 	//
 	// 🟩 📡 🔴 🟢 
 	//
@@ -62,6 +81,10 @@ func GetMessage(config vars.SlackConfig) string {
 	stdin, err := io.ReadAll(os.Stdin)
 	if err != nil {
 		panic(err)
+	}
+	// we know we need at least 60 chars, exit if we get less then 50 chars
+	if len(string(stdin)) < 50 {
+		os.Exit(3)
 	}
 	data := strings.Split(string(stdin), "\n")
 	notification_type = strings.Split(data[0], " ")[0]
@@ -90,7 +113,9 @@ func GetMessage(config vars.SlackConfig) string {
 				 url, service_name, notification_state)
 			}
 		default:
-			message = ":red_alert: unknown error occured, please check the monitor dashboard"
+			re := regexp.MustCompile("status.*")
+			url := fmt.Sprintf("<%s|monitor home>", re.ReplaceAllString(config.Url, "main.cgi"))
+			message = fmt.Sprintf(":large_yellow_circle: %s\n\n ⦿ unknown *error* occured \n ⦿ please check the monitor dashboard\n",url)
 	}
 	return message
 }
