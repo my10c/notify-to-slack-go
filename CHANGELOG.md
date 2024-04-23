@@ -1,1 +1,4 @@
-CHANGELOG/CHANGELOG-0.0.1.md
+# v0.0.1
+
+## INFO
+- first public release
