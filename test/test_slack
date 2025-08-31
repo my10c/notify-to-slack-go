@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# BSD 3-Clause License
+#
+# Copyright (c) 2025, © Badassops LLC / Luc Suryo
+# All rights reserved.
+#
+
+CMD=../notify-to-slack
+
+echo "Test Service CRITICAL"
+/usr/bin/printf "%b" "ServiceHost: myhost.cloud\nServiceOutput: CRITICAL\nServiceName: NTP\nServiceState: please ignore, testing service critical\n" | $CMD
+
+echo "Test Service OK"
+/usr/bin/printf "%b" "ServiceHost: myhost.cloud\nServiceOutput: OK\nServiceName: NTP\nServiceState: please ignore, testing service ok\n" | $CMD
+
+echo "Test Direct message"
+$CMD -m ':large_yellow_circle: please ignore, testing direct message'

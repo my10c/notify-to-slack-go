@@ -1,6 +1,13 @@
 
 CODE_NAME = notify-to-slack
-SOURCES = $(CODE_NAME).go
+SOURCES = $(CODE_NAME).go \
+	mod/configurator/configurator.go \
+	mod/getargs/getargs.go \
+	mod/help/help.go \
+	mod/logs/logs.go \
+	mod/message/message.go \
+	mod/vars/vars.go \
+
 BUILT_SOURCES = $(SOURCES)
 
 all: clean build
