@@ -16,15 +16,15 @@ use the `-S` to see how to setup the configuration file
 ## usage
 
 ```
+usage: notify-to-slack_Darwin_arm64 [-h|--help] [-c|--configFile "<value>"]
+                                    [-v|--version] [-i|--info] [-t|--test]
+                                    [-s|--setup] [-S|--slack-config]
+                                    [-m|--message "<value>" [-m|--message
+                                    "<value>" ...]] [-q|--quiet]
 
-usage: notify-to-slack [-h|--help] [-c|--configFile "<value>"] [-v|--version]
-                       [-i|--info] [-t|--test] [-s|--setup] [-S|--slack-config]
-                       [-m|--message "<value>" [-m|--message "<value>" ...]]
-                       [-q|--quiet]
-
-                       Simple script send a message to a slack channel via a
-                       piped message or by the given the message on the
-                       command line.
+                                    Simple script send a message to a slack
+                                    channel via a piped message or by the given
+                                    the message on the command line.
 
 Arguments:
 
@@ -32,7 +32,7 @@ Arguments:
   -c  --configFile    Configuration file to be use. Default:
                       /usr/local/etc/slack/slack.conf
   -v  --version       Show version
-  -i  --info          Show how to use notify-to-slack
+  -i  --info          Show how to use notify-to-slack_Darwin_arm64
   -t  --test          test mode, no message will be sent. Default: false
   -s  --setup         Show how to setup in nagios or naemon
   -S  --slack-config  Show how to setup the slack configuration file
