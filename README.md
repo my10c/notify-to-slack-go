@@ -23,7 +23,8 @@ usage: notify-to-slack [-h|--help] [-c|--configFile "<value>"] [-v|--version]
                        [-q|--quiet]
 
                        Simple script send a message to a slack channel via a
-                       piped message.
+                       piped message or by the given the message on the
+                       command line.
 
 Arguments:
 
