@@ -2,3 +2,4 @@
 notify-to-slack
 tmp/*
 work/*
+release/*
