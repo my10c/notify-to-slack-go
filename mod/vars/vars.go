@@ -70,7 +70,7 @@ var (
 	myEmail     = "<luc@badassops.com>"
 	MyInfo      = fmt.Sprintf("%s (version %s)\n%s\n%s\nWritten by %s %s\n",
 		MyProgname, MyVersion, myCopyright, myLicense, myAuthor, myEmail)
-	MyDescription = "Simple script send a message to a slack channel via a piped message, by the givev message on the command line."
+	MyDescription = "Simple script send a message to a slack channel via a piped message or by the given the message on the command line."
 
 	// configuration file and slack default values
 	DefaultQuiet         = false
